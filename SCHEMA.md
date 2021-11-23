@@ -38,18 +38,20 @@ Name|Type|Description
 
 Action|Description
 -|-
-`PERFORM_TRANSFER`|Transfer coins from one account to the other
+`TRANSFER`|Transfer coins from one account to the other
+`EXTRACT`|Extract the coins recieved by an authority to an account
 `CREDIT`|Add credits to a single account. Require 90% approval.
 
 Name|Type|Description
 -|-|-
-`from`|Id?|The account sending coins, null if `CREDIT`
+`from`|Id?|The account or authority sending coins, null if `CREDIT`
 `to`|Id|The account receiving coins
 `amount`|Integer|The amount of coins being transfered
+`reward`|Integer|The amount of coins given to the authorities signing this transfer. Must be at least one.
 
 Signature|Author
 -|-
-`SENDER`|Key of the `from` account, only if not `CREDIT`
+`SENDER`|Key of the `from` account or authority, only if not `CREDIT`
 
 ## Identity
 
@@ -60,9 +62,9 @@ Action|Description
 
 Name|Type|Description
 -|-|-
-`id`|Id|The hash of the `key` and `name` fields
+`id`|Id|The hash of the `key` field
 `key`|String|The ASCII-armored key tied to this identity
-`name`|String|Human readable name, limited to 79 characters
+`name`|String|Human readable name for accounts, endpoint for authorities, limited to 79 characters
 
 Signature|Author
 -|-
