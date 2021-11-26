@@ -23,7 +23,7 @@ Name|Type|Description
 
 # Signature
 The signature uses RSASSA-PKCS1-v1_5 ([RFC8017, Section 8.2](https://datatracker.ietf.org/doc/html/rfc8017#section-8.2)).
-In the case of a transaction, the whole `data` block is used for creating the hash, while the `transactions` block is used for individual blocks.
+In the case of a transaction, the whole `data` block is used for creating the hash, while the `transactions` block and `previous` ID is used for individual blocks.
 This block is serialized using the JSON specs with as little whitespaces as possible, and the timestamp is appened.
 
 Name|Type|Description
