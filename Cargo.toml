@@ -1,8 +1,9 @@
 [package]
-name = "duckoin"
-version = "0.1.0"
+name = "darcoin"
+version = "0.1.0-dev"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+clap = {version = "3.0.14", features = ["derive"]}
+log = "0.4.14"
+simplelog = "0.11.0"
