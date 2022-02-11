@@ -1,0 +1,34 @@
+name: Build Code
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build_debug:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build code using Cargo
+        run: cargo build
+    
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dracoin_debug
+          path: target/debug/darcoin
+
+  build_release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build code using Cargo
+        run: cargo build --release
+    
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dracoin_release
+          path: target/release/darcoin

@@ -4,6 +4,7 @@ mod logging;
 extern crate clap;
 
 use clap::Parser;
+#[allow(unused_imports)]
 use log::{debug, warn, LevelFilter};
 
 use cli::Cli;
