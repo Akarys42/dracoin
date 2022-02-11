@@ -1,8 +1,10 @@
-name: Build Code
+name: Build Dracoin
 
 on:
   push:
   pull_request:
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   build_debug:
@@ -30,5 +32,5 @@ jobs:
     
       - uses: actions/upload-artifact@v2
         with:
-          name: dracoin_release
+          name: dracoin
           path: target/release/darcoin
