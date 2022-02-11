@@ -1,2 +1,2 @@
-# duckoin
-A Proof-of-Authority joke cryptocurrency
+# Dracoin
+A Proof-of-Authority toy cryptocurrency
