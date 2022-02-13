@@ -1,0 +1,22 @@
+name: Check code using Rustfmt & Clippy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check code using Rustfmt
+        run: cargo fmt --check
+      
+      - name: Check code using Clippy
+        run: cargo clippy --release -- -D warnings --no-deps

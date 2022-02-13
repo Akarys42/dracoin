@@ -1,0 +1,38 @@
+name: Build Dracoin
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  build_debug:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build code using Cargo
+        run: cargo build
+    
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dracoin_debug
+          path: target/debug/darcoin
+
+  build_release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build code using Cargo
+        run: cargo build --release
+    
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dracoin
+          path: target/release/darcoin
